@@ -21,4 +21,21 @@ class ScalateExampleSpec extends FunSpec {
     assert(engine.layout(sourceDataPath, someAttributes) == expected)
   }
 
+  it("creates a list example") {
+    val sourceDataPath = new java.io.File("./src/test/resources/list_example.mustache").getCanonicalPath
+    val engine = new TemplateEngine
+    val someAttributes = Map(
+      "repo" -> List(
+        Map("name" -> "resque"),
+        Map("name" -> "hub"),
+        Map("name" -> "rip")
+      )
+    )
+    val expected = """<b>resque</b>
+                     |<b>hub</b>
+                     |<b>rip</b>
+                     |""".stripMargin
+    assert(engine.layout(sourceDataPath, someAttributes) == expected)
+  }
+
 }
