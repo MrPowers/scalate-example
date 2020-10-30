@@ -1,0 +1,5 @@
+<% import mrpowers.scalate.example.FunStuff  %>
+<p>
+    My message is "<%= List("hi", "there", "reader!").mkString(" ") %>"
+    At dinnertime, I like <%= FunStuff.dinnertime %>
+</p>
